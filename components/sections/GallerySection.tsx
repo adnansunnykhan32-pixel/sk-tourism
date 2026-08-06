@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Badge } from "@/components/ui/badge";
 import { ChevronLeft, ChevronRight, MapPin } from "lucide-react";
 
 interface GallerySlide {
@@ -24,7 +23,7 @@ const GALLERY_SLIDES: GallerySlide[] = [
   },
   {
     id: "g2",
-    title: "Royal VIP Desert Safari Cabanas",
+    title: "Royal Desert Safari Cabanas",
     category: "Desert Sanctuary",
     image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2000&q=90",
     location: "Lahbab Red Dunes",
@@ -63,36 +62,36 @@ export const GallerySection: React.FC = () => {
     setCurrentIndex((prev) => (prev - 1 + GALLERY_SLIDES.length) % GALLERY_SLIDES.length);
   };
 
-  // Auto-advance gallery slides every 2.5 seconds cleanly
+  // Auto-advance gallery slides every 3 seconds
   useEffect(() => {
     const timer = setInterval(() => {
       nextSlide();
-    }, 2500);
+    }, 3000);
     return () => clearInterval(timer);
   }, []);
 
   const current = GALLERY_SLIDES[currentIndex];
 
   return (
-    <section id="gallery" className="py-16 bg-[#071D33] relative text-white overflow-hidden">
+    <section id="gallery" className="py-16 bg-[#0F4A43] relative text-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 space-y-3">
-          <Badge variant="gold" className="px-4 py-1.5 font-bold tracking-widest text-xs">
-            Visual Excellence
-          </Badge>
+          <span className="inline-block text-[10px] font-bold uppercase tracking-widest text-[#0F4A43] bg-[#D9C6A5] px-4 py-1.5 rounded-full">
+            Photo Gallery
+          </span>
           <h2 className="text-3xl sm:text-5xl font-serif font-extrabold text-white tracking-tight">
-            Dubai Tourism <span className="gold-text-gradient">Gallery</span>
+            Dubai Tourism <span className="sand-text-gradient">Gallery</span>
           </h2>
-          <p className="text-base text-gray-300 font-light leading-relaxed">
-            Snapshots of extraordinary moments and royal experiences enjoyed by our VIP guests.
+          <p className="text-base text-[#B7BCAF] font-light leading-relaxed">
+            Snapshots of extraordinary moments and luxury experiences enjoyed by our guests.
           </p>
         </div>
 
-        {/* Stacked Auto-Rotating Image Carousel Showcase */}
-        <div className="relative max-w-5xl mx-auto h-[450px] sm:h-[550px] rounded-3xl overflow-hidden shadow-2xl border border-[#D4AF37]/40">
-          
+        {/* Auto-Rotating Image Carousel */}
+        <div className="relative max-w-5xl mx-auto h-[430px] sm:h-[520px] rounded-3xl overflow-hidden shadow-2xl border border-[#D9C6A5]/30">
+
           <AnimatePresence mode="wait">
             <motion.div
               key={current.id}
@@ -110,14 +109,14 @@ export const GallerySection: React.FC = () => {
                 sizes="(max-width: 1200px) 100vw, 1200px"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#071D33] via-transparent to-transparent opacity-80" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0F4A43] via-transparent to-transparent opacity-80" />
             </motion.div>
           </AnimatePresence>
 
           {/* Slide Details Overlay */}
           <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-10 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 z-10">
             <div className="space-y-2 max-w-xl">
-              <span className="inline-flex items-center space-x-1.5 text-xs font-bold text-[#D4AF37] uppercase tracking-widest bg-black/40 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
+              <span className="inline-flex items-center space-x-1.5 text-xs font-bold text-[#D9C6A5] uppercase tracking-widest bg-black/40 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
                 <MapPin className="w-3.5 h-3.5" />
                 <span>{current.location}</span>
               </span>
@@ -126,11 +125,11 @@ export const GallerySection: React.FC = () => {
               </h3>
             </div>
 
-            {/* Navigation Dots & Controls */}
+            {/* Navigation Controls */}
             <div className="flex items-center space-x-3 bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-white/15">
               <button
                 onClick={prevSlide}
-                className="text-white/80 hover:text-[#D4AF37] transition-colors"
+                className="text-white/80 hover:text-[#D9C6A5] transition-colors"
                 aria-label="Previous photo"
               >
                 <ChevronLeft className="w-5 h-5" />
@@ -142,7 +141,7 @@ export const GallerySection: React.FC = () => {
                     key={idx}
                     onClick={() => setCurrentIndex(idx)}
                     className={`h-2 rounded-full transition-all duration-300 ${
-                      idx === currentIndex ? "w-6 bg-[#D4AF37]" : "w-2 bg-white/40"
+                      idx === currentIndex ? "w-6 bg-[#D9C6A5]" : "w-2 bg-white/40"
                     }`}
                     aria-label={`Go to slide ${idx + 1}`}
                   />
@@ -151,7 +150,7 @@ export const GallerySection: React.FC = () => {
 
               <button
                 onClick={nextSlide}
-                className="text-white/80 hover:text-[#D4AF37] transition-colors"
+                className="text-white/80 hover:text-[#D9C6A5] transition-colors"
                 aria-label="Next photo"
               >
                 <ChevronRight className="w-5 h-5" />

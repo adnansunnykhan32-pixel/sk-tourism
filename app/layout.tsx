@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "SK Tourism | Dubai VIP Tourism & Luxury Chauffeur Services",
     description:
-      "Bespoke Dubai luxury travel experiences. Private desert safaris, executive chauffeurs, and VIP hotel upgrades.",
+      "Luxury Dubai travel experiences. Private desert safaris, executive chauffeurs, and VIP hotel upgrades.",
     url: "https://sktourismdubai.com",
     siteName: "SK Tourism",
     locale: "en_US",
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "SK Tourism | Luxury Dubai Tours & VIP Chauffeur",
     description:
-      "Book bespoke VIP Dubai tours, private desert safaris, and luxury chauffeurs with SK Tourism.",
+      "Book VIP Dubai tours, private desert safaris, and luxury chauffeurs with SK Tourism.",
     images: ["https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=80"],
   },
   robots: {
@@ -89,7 +89,7 @@ export default function RootLayout({
           />
         ))}
       </head>
-      <body className="antialiased bg-[#F8F9FA] text-[#1F2937] min-h-screen flex flex-col selection:bg-[#D4AF37] selection:text-[#0F4C81]">
+      <body className="antialiased bg-[#F8F5F0] text-[#0F4A43] min-h-screen flex flex-col selection:bg-[#D9C6A5] selection:text-[#0F4A43]">
         <CurrencyProvider>
           {children}
           <WhatsAppFloatingButton />

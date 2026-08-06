@@ -2,19 +2,19 @@
 
 @layer base {
   :root {
-    /* New Luxury Dark Green & Sand Color Palette */
+    /* Luxury Dark Green & Sand Color Palette */
     --primary: #0F4A43;
     --primary-dark: #09332E;
     --primary-light: #2F6B5F;
-    
+
     --secondary-green: #2F6B5F;
     --soft-sage: #B7BCAF;
     --warm-white: #F8F5F0;
     --luxury-sand: #D9C6A5;
 
     --heading: #0F4A43;
-    --text-muted: #5C6865;
-    --border-color: #E2DDD5;
+    --text-muted: #2F6B5F;
+    --border-color: #B7BCAF;
     --bg-main: #F8F5F0;
   }
 
@@ -31,117 +31,84 @@
   }
 }
 
-/* Custom Design Utilities for New Palette */
-.bg-dark-green {
-  background-color: #0F4A43;
-}
+/* ── Design Utilities ── */
+.bg-dark-green    { background-color: #0F4A43; }
+.bg-secondary-green { background-color: #2F6B5F; }
+.text-dark-green  { color: #0F4A43; }
+.text-sand        { color: #D9C6A5; }
+.bg-sand          { background-color: #D9C6A5; }
+.border-sand      { border-color: #D9C6A5; }
+.bg-warm-white    { background-color: #F8F5F0; }
 
-.bg-secondary-green {
-  background-color: #2F6B5F;
-}
-
-.text-dark-green {
-  color: #0F4A43;
-}
-
-.text-sand {
-  color: #D9C6A5;
-}
-
-.bg-sand {
-  background-color: #D9C6A5;
-}
-
-.border-sand {
-  border-color: #D9C6A5;
-}
-
-.bg-warm-white {
-  background-color: #F8F5F0;
-}
-
-/* Luxury Sand Text Gradient */
+/* ── Luxury Sand Text Gradient (primary) ── */
 .sand-text-gradient {
   background: linear-gradient(135deg, #D9C6A5 0%, #F0E6D2 40%, #B8A37E 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-/* Glassmorphism Utilities */
+/* ── gold-text-gradient = alias for sand-text-gradient (legacy compat) ── */
+.gold-text-gradient {
+  background: linear-gradient(135deg, #D9C6A5 0%, #F0E6D2 40%, #B8A37E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Glassmorphism ── */
 .glass-card {
   background: #FFFFFF;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(217, 198, 165, 0.4);
+  border: 1px solid rgba(183, 188, 175, 0.4);
   box-shadow: 0 10px 30px -10px rgba(15, 74, 67, 0.06);
 }
 
 .glass-card-dark {
-  background: rgba(15, 74, 67, 0.95);
+  background: rgba(15, 74, 67, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(217, 198, 165, 0.3);
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(217, 198, 165, 0.25);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.35);
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #0F4A43;
-}
-::-webkit-scrollbar-thumb {
-  background: #D9C6A5;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #B7BCAF;
-}
+/* ── Custom Scrollbar ── */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #0F4A43; }
+::-webkit-scrollbar-thumb { background: #D9C6A5; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #B7BCAF; }
 
-/* Pulse animation for floating WhatsApp */
+/* ── WhatsApp Pulse ── */
 @keyframes pulse-ring {
-  0% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-  }
-  70% {
-    transform: scale(1);
-    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
-  }
-  100% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-  }
+  0%   { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+  70%  { transform: scale(1);    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
 
-.whatsapp-pulse {
-  animation: pulse-ring 2.5s infinite;
-}
+.whatsapp-pulse { animation: pulse-ring 2.5s infinite; }
 
-/* WhatsApp border hover effect */
+/* ── WhatsApp Border Button ── */
 .whatsapp-border-button {
   background: transparent;
   border: 1px solid #25D366;
   color: #25D366;
   transition: all 0.3s ease;
 }
-
 .whatsapp-border-button:hover {
-  background: rgba(37, 211, 102, 0.12);
-  box-shadow: 0 0 15px rgba(37, 211, 102, 0.3);
+  background: rgba(37, 211, 102, 0.1);
+  box-shadow: 0 0 15px rgba(37, 211, 102, 0.25);
 }
 
-/* Primary Transparent Button with Border */
+/* ── Primary Transparent Button (#0F4A43 border) ── */
 .btn-transparent-primary {
   background: transparent;
-  border: 1px solid #D9C6A5;
-  color: #F8F5F0;
+  border: 1px solid #0F4A43;
+  color: #0F4A43;
   transition: all 0.3s ease;
 }
-
 .btn-transparent-primary:hover {
-  background: rgba(217, 198, 165, 0.15);
-  border-color: #F8F5F0;
+  background: #0F4A43;
+  color: #F8F5F0;
   transform: translateY(-1px);
 }

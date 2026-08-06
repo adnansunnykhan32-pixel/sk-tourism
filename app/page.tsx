@@ -12,8 +12,8 @@ import Footer from "@/components/layout/Footer";
 
 // Section Skeleton Fallback
 const SectionSkeleton = () => (
-  <div className="py-20 bg-[#F8F9FA] flex items-center justify-center">
-    <div className="w-10 h-10 rounded-full border-4 border-[#D4AF37] border-t-transparent animate-spin" />
+  <div className="py-20 bg-[#F8F5F0] flex items-center justify-center">
+    <div className="w-10 h-10 rounded-full border-4 border-[#D9C6A5] border-t-transparent animate-spin" />
   </div>
 );
 
@@ -40,20 +40,20 @@ const ContactSection = dynamic(() => import("@/components/sections/ContactSectio
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#F8F9FA] text-[#1F2937]">
-      {/* 1. Compact Sticky Glass Navigation Bar */}
+    <main className="min-h-screen bg-[#F8F5F0] text-[#0F4A43]">
+      {/* 1. Compact Sticky Navigation Bar */}
       <Header />
 
-      {/* 2. Ultra-Clean Hero Section with Overlapping Destination Cards Carousel */}
+      {/* 2. Hero Section with Overlapping Destination Cards Carousel */}
       <HeroSection />
 
-      {/* 3. Primary Services Section (3 Ultra-Premium Services) */}
+      {/* 3. Primary Services Section (3 Premium Services) */}
       <ServicesSection />
 
       {/* 4. Why Choose SK Tourism (4 Clean Cards) */}
       <WhyChooseUs />
 
-      {/* 5. Featured VIP Tour Packages */}
+      {/* 5. Featured Tour Packages */}
       <PackagesSection />
 
       {/* 6. Explore Dubai Showcase Section */}
@@ -62,25 +62,25 @@ export default function Home() {
       {/* 7. Luxury Vehicle Fleet Showcase */}
       <FleetSection />
 
-      {/* 8. Option B Stacked Auto-Rotating Dubai Gallery Showcase */}
+      {/* 8. Auto-Rotating Dubai Gallery Showcase */}
       <GallerySection />
 
-      {/* 9. Compact Guest Testimonials Section */}
+      {/* 9. Guest Testimonials Section */}
       <TestimonialsSection />
 
-      {/* 10. Compact FAQ Section (3 Essential Questions) */}
+      {/* 10. FAQ Section */}
       <FAQSection />
 
-      {/* 11. VIP Booking Form Desk */}
+      {/* 11. Booking Form */}
       <BookingForm />
 
       {/* 12. Contact Section & Map */}
       <ContactSection />
 
-      {/* 13. Elegant Stats Counter Section (Moved near Footer) */}
+      {/* 13. Stats Counter Section */}
       <StatsCounter />
 
-      {/* 14. Comprehensive Dark Navy Footer */}
+      {/* 14. Footer */}
       <Footer />
     </main>
   );

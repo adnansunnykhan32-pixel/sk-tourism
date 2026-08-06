@@ -8,7 +8,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FloatingInput } from "@/components/ui/floating-input";
 import { FloatingSelect } from "@/components/ui/floating-select";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { BUSINESS_INFO, SERVICES } from "@/lib/constants";
 import {
   User,
@@ -66,7 +65,7 @@ export const BookingForm: React.FC = () => {
   });
 
   const generateWhatsAppMessage = (data: BookingFormValues) => {
-    const text = `*NEW VIP BOOKING INQUIRY - SK TOURISM DUBAI*
+    const text = `*NEW BOOKING INQUIRY - SK TOURISM DUBAI*
 ----------------------------------------
 *Guest Name:* ${data.fullName}
 *WhatsApp:* ${data.whatsappNumber}
@@ -98,7 +97,7 @@ Please confirm availability and dispatch confirmation.`;
     if (currentValues.fullName && currentValues.whatsappNumber) {
       window.open(generateWhatsAppMessage(currentValues), "_blank");
     } else {
-      const defaultText = `Hello SK Tourism, I would like to inquire about reserving a VIP luxury Dubai experience.`;
+      const defaultText = `Hello SK Tourism, I would like to inquire about reserving a luxury Dubai experience.`;
       window.open(
         `https://wa.me/${BUSINESS_INFO.whatsappNumber}?text=${encodeURIComponent(defaultText)}`,
         "_blank"
@@ -109,36 +108,35 @@ Please confirm availability and dispatch confirmation.`;
   const serviceOptions = SERVICES.map((s) => ({ label: s.title, value: s.title }));
   const vehicleOptions = [
     { label: "Mercedes-Maybach S-Class", value: "Mercedes-Maybach S-Class" },
-    { label: "Rolls-Royce Cullinan (Ultra VIP)", value: "Rolls-Royce Cullinan" },
+    { label: "Rolls-Royce Cullinan (Ultra Luxury)", value: "Rolls-Royce Cullinan" },
     { label: "Cadillac Escalade ESV SUV", value: "Cadillac Escalade ESV" },
-    { label: "Mercedes V-Class VIP (7 Seats)", value: "Mercedes V-Class VIP" },
-    { label: "Toyota Hiace VIP (9 Seats)", value: "Toyota Hiace VIP" },
-    { label: "Mercedes Sprinter VIP Bus (14 Seats)", value: "Mercedes Sprinter VIP" },
+    { label: "Mercedes V-Class (7 Seats)", value: "Mercedes V-Class" },
+    { label: "Toyota Hiace Executive (9 Seats)", value: "Toyota Hiace VIP" },
     { label: "BMW 7 Series Sedan", value: "BMW 7 Series" },
   ];
 
   return (
-    <section id="booking" className="py-20 bg-[#071D33] relative text-white">
+    <section id="booking" className="py-20 bg-[#0F4A43] relative text-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-4">
-          <Badge variant="gold" className="px-4 py-1.5 font-bold tracking-widest text-xs">
-            VIP Reservation Desk
-          </Badge>
+          <span className="inline-block text-[10px] font-bold uppercase tracking-widest text-[#0F4A43] bg-[#D9C6A5] px-4 py-1.5 rounded-full">
+            Reserve Your Journey
+          </span>
           <h2 className="text-3xl sm:text-5xl font-serif font-extrabold text-white tracking-tight">
-            Reserve Your <span className="gold-text-gradient">Dubai Journey</span>
+            Reserve Your <span className="sand-text-gradient">Dubai Journey</span>
           </h2>
-          <p className="text-base sm:text-lg text-gray-300 font-light leading-relaxed">
-            Submit your reservation preferences below. Our 24/7 VIP Concierge team will instantly confirm availability and send your itinerary.
+          <p className="text-base sm:text-lg text-[#B7BCAF] font-light leading-relaxed">
+            Submit your reservation preferences below. Our team will confirm availability and send your itinerary.
           </p>
         </div>
 
         {/* Form Container */}
-        <div className="glass-card-dark p-6 sm:p-10 rounded-3xl border border-[#D4AF37]/40 shadow-2xl">
+        <div className="glass-card-dark p-6 sm:p-10 rounded-3xl border border-[#D9C6A5]/30 shadow-2xl">
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             {/* Group 1: Personal & Contact */}
             <div>
-              <h3 className="text-xs uppercase font-bold tracking-widest text-[#D4AF37] mb-4 flex items-center space-x-2">
+              <h3 className="text-sm font-serif font-bold tracking-wide text-[#D9C6A5] mb-4 flex items-center space-x-2">
                 <User className="w-4 h-4" />
                 <span>1. Guest Contact Details</span>
               </h3>
@@ -174,7 +172,7 @@ Please confirm availability and dispatch confirmation.`;
 
             {/* Group 2: Service & Vehicle */}
             <div className="pt-4 border-t border-white/10">
-              <h3 className="text-xs uppercase font-bold tracking-widest text-[#D4AF37] mb-4 flex items-center space-x-2">
+              <h3 className="text-sm font-serif font-bold tracking-wide text-[#D9C6A5] mb-4 flex items-center space-x-2">
                 <Car className="w-4 h-4" />
                 <span>2. Service & Preferred Vehicle</span>
               </h3>
@@ -208,7 +206,7 @@ Please confirm availability and dispatch confirmation.`;
 
             {/* Group 3: Schedule & Route */}
             <div className="pt-4 border-t border-white/10">
-              <h3 className="text-xs uppercase font-bold tracking-widest text-[#D4AF37] mb-4 flex items-center space-x-2">
+              <h3 className="text-sm font-serif font-bold tracking-wide text-[#D9C6A5] mb-4 flex items-center space-x-2">
                 <Calendar className="w-4 h-4" />
                 <span>3. Date, Time & Pickup</span>
               </h3>
@@ -246,7 +244,7 @@ Please confirm availability and dispatch confirmation.`;
 
             {/* Group 4: Party Size & Notes */}
             <div className="pt-4 border-t border-white/10">
-              <h3 className="text-xs uppercase font-bold tracking-widest text-[#D4AF37] mb-4 flex items-center space-x-2">
+              <h3 className="text-sm font-serif font-bold tracking-wide text-[#D9C6A5] mb-4 flex items-center space-x-2">
                 <Users className="w-4 h-4" />
                 <span>4. Guests & Additional Notes</span>
               </h3>
@@ -282,9 +280,9 @@ Please confirm availability and dispatch confirmation.`;
 
             {/* Action Buttons */}
             <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-              <div className="text-xs text-gray-300 flex items-center space-x-2">
+              <div className="text-xs text-[#B7BCAF] flex items-center space-x-2">
                 <CheckCircle2 className="w-4 h-4 text-[#25D366]" />
-                <span>Instant Pre-Filled WhatsApp Dispatch Available</span>
+                <span>Instant WhatsApp Dispatch Available</span>
               </div>
 
               <div className="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-3 w-full sm:w-auto">
@@ -323,45 +321,45 @@ Please confirm availability and dispatch confirmation.`;
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
-              className="bg-white rounded-3xl max-w-lg w-full p-8 text-gray-900 shadow-2xl relative border border-[#D4AF37]"
+              className="bg-white rounded-3xl max-w-lg w-full p-8 text-[#0F4A43] shadow-2xl relative border border-[#D9C6A5]"
             >
               <button
                 onClick={() => {
                   setSubmittedData(null);
                   reset();
                 }}
-                className="absolute top-4 right-4 p-2 text-gray-400 hover:text-gray-900"
+                className="absolute top-4 right-4 p-2 text-[#B7BCAF] hover:text-[#0F4A43]"
               >
                 <X className="w-5 h-5" />
               </button>
 
               <div className="text-center space-y-3 mb-6">
-                <div className="w-16 h-16 rounded-full bg-emerald-100 text-[#25D366] flex items-center justify-center mx-auto shadow-inner">
+                <div className="w-16 h-16 rounded-full bg-emerald-50 text-[#25D366] flex items-center justify-center mx-auto shadow-inner">
                   <CheckCircle2 className="w-10 h-10" />
                 </div>
-                <h3 className="font-serif text-2xl font-bold text-[#0F4C81]">
+                <h3 className="font-serif text-2xl font-bold text-[#0F4A43]">
                   Reservation Request Ready!
                 </h3>
-                <p className="text-xs text-gray-600">
-                  Thank you, <strong className="text-gray-900">{submittedData.fullName}</strong>. Your inquiry details are ready for instant dispatch.
+                <p className="text-xs text-[#2F6B5F]">
+                  Thank you, <strong className="text-[#0F4A43]">{submittedData.fullName}</strong>. Your inquiry details are ready for instant dispatch.
                 </p>
               </div>
 
-              <div className="bg-[#F8F9FA] p-4 rounded-2xl border border-gray-200 text-xs space-y-2 mb-6">
-                <div className="flex justify-between border-b pb-1">
-                  <span className="text-gray-500">Service:</span>
-                  <span className="font-bold text-[#0F4C81]">{submittedData.service}</span>
+              <div className="bg-[#F8F5F0] p-4 rounded-2xl border border-[#B7BCAF]/40 text-xs space-y-2 mb-6">
+                <div className="flex justify-between border-b border-[#B7BCAF]/30 pb-1">
+                  <span className="text-[#2F6B5F]">Service:</span>
+                  <span className="font-bold text-[#0F4A43]">{submittedData.service}</span>
                 </div>
-                <div className="flex justify-between border-b pb-1">
-                  <span className="text-gray-500">Vehicle:</span>
+                <div className="flex justify-between border-b border-[#B7BCAF]/30 pb-1">
+                  <span className="text-[#2F6B5F]">Vehicle:</span>
                   <span className="font-bold">{submittedData.vehicleType}</span>
                 </div>
-                <div className="flex justify-between border-b pb-1">
-                  <span className="text-gray-500">Date & Time:</span>
+                <div className="flex justify-between border-b border-[#B7BCAF]/30 pb-1">
+                  <span className="text-[#2F6B5F]">Date & Time:</span>
                   <span className="font-bold">{submittedData.travelDate} @ {submittedData.pickupTime}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-500">Pickup:</span>
+                  <span className="text-[#2F6B5F]">Pickup:</span>
                   <span className="font-bold">{submittedData.pickupLocation}</span>
                 </div>
               </div>
@@ -383,7 +381,7 @@ Please confirm availability and dispatch confirmation.`;
                     setSubmittedData(null);
                     reset();
                   }}
-                  className="w-full text-center text-xs font-semibold text-gray-500 hover:text-gray-800"
+                  className="w-full text-center text-xs font-semibold text-[#B7BCAF] hover:text-[#0F4A43]"
                 >
                   Close & Clear Form
                 </button>
